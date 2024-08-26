@@ -1,117 +1,126 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="cmn-Hans">
+
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LTPR服务器</title>
-  <link rel="stylesheet" type="text/css" href="styles.css">
-    <link rel="stylesheet" href="style.css"> <!-- 如果有自定义样式，可以在这里引入 -->
-   <link rel="stylesheet" type="text/css" href="styles.css">
-
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        .navbar {
+            background-color: #007bff;
+        }
+        .navbar-brand {
+            color: #fff;
+        }
+        .navbar-brand:hover {
+            color: #e0e0e0;
+        }
+        .navbar-nav .nav-link {
+            color: #fff;
+        }
+        .navbar-nav .nav-link.active {
+            font-weight: bold;
+        }
+        .navbar-nav .nav-link:hover {
+            color: #e0e0e0;
+        }
+        .hero-section {
+            background: linear-gradient(to right, #007bff, #00bfae);
+            color: #fff;
+            padding: 60px 0;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .hero-section h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        .hero-section p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        .hero-section .btn-primary {
+            background-color: #00bfae;
+            border-color: #00bfae;
+        }
+        .hero-section .btn-primary:hover {
+            background-color: #019c87;
+            border-color: #019c87;
+        }
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .card-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        .card-text {
+            font-size: 1rem;
+        }
+    </style>
 </head>
+
 <body>
-    <header>
-        <h1>欢迎来到LTPR服务器</h1>
-        <p>探索无限可能的方块世界！</p>
-    </header>
-
-    <section id="about">
-        <h2>关于我们</h2>
-        <p>我们是一家致力于打造最佳《我的世界》Java版服务器的团队。我们提供高质量的游戏环境和社区，让玩家们可以尽情享受《我的世界》的乐趣。</p>
-    </section>
-
-    <section id="features">
-        <h2>服务器特点</h2>
-        <ul>
-            <li>基于spigot1.20.1的服务器，可以创造多个世界</li>
-            <li>友好的社区和活跃的玩家群体。</li>
-            <li>支持插件，为玩家提供更多的乐趣和可能性。</li>
-            <li>服务器稳定，具备良好的性能和潜在的扩展性。</li>
-        </ul>
-    </section>
-<body>
-    <h2>服务器状态</h2>
-    <p>当前状态：<span class="status" id="serverStatus">正在检查...</span></p>
-    <p>在线玩家数：<span class="status" id="playerCount">正在检查...</span></p>
-  </div>
-
-  <script>
-    function checkServerStatus() {
-      fetch('https://api.mcsrvstat.us/2/k1.getmc.cn:15302') // 替换为您的服务器IP地址
-        .then(response => response.json())
-        .then(data => {
-          if (data.online) {
-            document.getElementById('serverStatus').innerHTML = '在线';
-            document.getElementById('serverStatus').classList.add('online');
-            document.getElementById('playerCount').innerHTML = data.players.online;
-            document.getElementById('playerCount').classList.add('online');
-          } else {
-            document.getElementById('serverStatus').innerHTML = '离线';
-            document.getElementById('serverStatus').classList.add('offline');
-            document.getElementById('playerCount').innerHTML = '-';
-          }
-        })
-        .catch(error => {
-          console.log('出现错误:', error);
-          document.getElementById('serverStatus').innerHTML = '无法连接到服务器';
-          document.getElementById('serverStatus').classList.add('offline');
-          document.getElementById('playerCount').innerHTML = '-';
-        });
-    }
-
-    setInterval(checkServerStatus, 5000);
-  </script>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">LTPR服务器</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">主页</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="join.html">加入我们</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="hero-section">
+            <h1>LTPR服务器</h1>
+            <p>我们是一家致力于打造最佳《我的世界》Java版服务器的团队。<br>提供高质量的游戏环境和社区，让玩家们可以尽情享受《我的世界》的乐趣，探索无限可能的方块世界！</p>
+            <a class="btn btn-lg btn-primary" href="join.html" role="button">加入我们 »</a>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">稳定</h5>
+                        <p class="card-text">具备良好的性能</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">热情</h5>
+                        <p class="card-text">友好的社区和活跃的玩家群体</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">有趣</h5>
+                        <p class="card-text">支持插件，为玩家提供更多的乐趣和可能性</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
 </body>
 
-    <section id="join">
-        <h2>加入我们</h2>
-        <p>想要加入我们的服务器？请按照以下步骤操作：</p>
-               <ol>
-	<a href="https://www.xbox.com/zh-cn/games/store/minecraft-java-bedrock-edition-for-pc/9nxp44l49shj" target="_blank">
-	购买《我的世界》Java版游戏。</a> 
-	<p>打开游戏，选择“多人游戏”。</p>
-       点击“添加服务器”并输入服务器地址。</p>
-  <title>点击复制内容</title>
-  <style>
-    .copy-button {
-      cursor: pointer;
-      padding: 5px 10px;
-      background-color: #eaeaea;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-  </style>
-</head>
-<body>
-	<a href="https://luffy-1313418722.cos.ap-tokyo.myqcloud.com/Plain%20Craft%20Launcher%202.exe">下载pcl2启动器</a>
-	<p>服务器qq群:243553318</p>
- 服务器地址：<p>全网通1:k1.getmc.cn:15302</p>
-	          <p>全网通2:mc.ltpr.asia</p>
-			  <p>全网通3:mi.ltpr.asia</p>
-	          <p>移动专线:yd.ltpr.asia</p>
-	          <p>联通专线:lt.ltpr.asia</p>
-	          <p>电信专线:dx.ltpr.asia</p>
-  </script>            开始畅玩LTPR！</p>
-
-
-        </ol>
-    </section>
-    </footer>
-<head>
-	<title>获取访客IP地址</title>
-	<meta charset="UTF-8">
-</head>
-<body>
-	<p>您的IP地址是: <span id="ip"></span></p>
-	<script>
-		// 使用免费的ipify API获取访客的IP地址
-		fetch('https://api.ipify.org/?format=json')
-			.then(response => response.json())
-			.then(data => {
-				document.getElementById('ip').textContent = data.ip;
-			})
-			.catch(error => console.error(error));
-	</script>
-</body>
-</body>
 </html>
